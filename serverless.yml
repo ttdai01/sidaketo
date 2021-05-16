@@ -13,8 +13,8 @@
 
 service: user-service
 # app and org for use with dashboard.serverless.com
-app: jaime
-org: blacklab
+# app: jaime
+# org: blacklab
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -28,6 +28,13 @@ provider:
 # you can overwrite defaults here
   stage: ${opt:stage, 'dev'}
   region: us-east-1
+
+plugins:
+  # - serverless-plugin-typescript
+  - serverless-pseudo-parameters
+  - serverless-mocha
+  - serverless-domain-manager
+  - serverless-offline
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -58,24 +65,12 @@ provider:
 #    - include-me-dir/**
 
 functions:
-  createUser:
-    handler: src/functions/createUser.createUser
+  app:
+    handler: dist/handler.handler
     events:
-      - http: 
-        path: /user
-        method: post
-  testFunction:
-    handler: src/functions/testFunction.testFunction
-    events:
-      - http: 
-          path: /test
-          method: get
-  hello:
-    handler: handler.hello
-    events:
-      - http: 
-          path: /
-          method: get
+      - http: ANY /
+      - http: "ANY {proxy+}"
+          # cors: true
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -128,15 +123,12 @@ functions:
 #       Description: "Description for the output"
 #       Value: "Some output value"
 
-plugins:
-  - serverless-pseudo-parameters
-  - serverless-mocha
-  - serverless-domain-manager
+
 custom: 
   stage: dev
   domains:
     prod: my-apps.sidaketo.com
-    staging: mmy-apps-staging.sidaketo.com
+    staging: my-apps-staging.sidaketo.com
     dev: my-apps-dev.sidaketo.com
   serverless-mocha-plugin:
     testTemplate: templates/test-template.ejs

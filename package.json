@@ -1,1 +1,46 @@
-{"name":"service-template","description":"","version":"0.1.0","devDependencies":{"aws-sdk":"^2.907.0","aws-sdk-mock":"^5.1.0","serverless-domain-manager":"^5.1.0","serverless-mocha":"^1.12.0","serverless-pseudo-parameters":"^2.5.0"},"dependencies":{"mocha":"^6.2.3"}}
+{
+  "name": "service-template",
+  "description": "",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "tsc",
+    "run-offline": "concurrently \"tsc-watch\" \"sls offline -s dev\""
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/express": "^4.17.11",
+    "@types/jsonwebtoken": "^8.5.1",
+    "@types/jwk-to-pem": "^2.0.0",
+    "@types/node": "^15.3.0",
+    "aws-sdk": "^2.907.0",
+    "aws-sdk-mock": "^5.1.0",
+    "serverless-domain-manager": "^5.1.0",
+    "serverless-mocha": "^1.12.0",
+    "serverless-pseudo-parameters": "^2.5.0",
+    "typescript": "^4.2.4",
+    "@types/axios": "^0.14.0",
+    "@types/compression": "^1.7.0",
+    "concurrently": "^6.0.2",
+    "serverless-offline": "^7.0.0",
+    "serverless-plugin-typescript": "^1.1.9"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwk-to-pem": "^2.0.5",
+    "mocha": "^6.2.3",
+    "mongoose": "^5.12.9",
+    "tsoa": "^3.7.0",
+    "amazon-cognito-identity-js": "^4.6.0",
+    "aws-sdk": "^2.907.0",
+    "axios": "^0.21.1",
+    "compression": "^1.7.4",
+    "serverless-http": "^2.7.0",
+    "typescipt": "^1.0.0",
+    "winston": "^3.3.3"
+  },
+  "main": "index.js",
+  "author": "dwight <tdaiforwork@gmail.com>",
+  "license": "MIT"
+}

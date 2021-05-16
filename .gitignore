@@ -1,1 +1,5 @@
 node_modules
+dist
+.serverless
+log
+*-lock.json

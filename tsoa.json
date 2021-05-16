@@ -1,0 +1,12 @@
+{
+    "entryFile": "src/handler.ts",
+    "noImplicitAdditionalProperties": "throw-on-extras",
+    "controllerPathGlobs": ["src/**/**/controller/*Controller.ts"],
+    "spec": {
+      "outputDirectory": "build",
+      "specVersion": 3
+    },
+    "routes": {
+      "routesDir": "build"
+    }
+  }
